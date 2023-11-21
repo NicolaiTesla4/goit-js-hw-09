@@ -6,7 +6,7 @@ function getRandomHexColor() {
 
 let intervalId;
 
-document.getElementById("startButton").addEventListener("click", function () {
+document.getElementById("data-start").addEventListener("click", function () {
   this.disabled = true;
 
   intervalId = setInterval(function () {
