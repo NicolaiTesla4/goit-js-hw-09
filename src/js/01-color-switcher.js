@@ -6,7 +6,7 @@ function getRandomHexColor() {
 
 let intervalId;
 
-document.getElementById("data-start").addEventListener("click", function () {
+document.getElementById("Start").addEventListener("click", function () {
   this.disabled = true;
 
   intervalId = setInterval(function () {
@@ -14,8 +14,8 @@ document.getElementById("data-start").addEventListener("click", function () {
   }, 1000);
 });
 
-document.getElementById("stopButton").addEventListener("click", function () {
-  document.getElementById("startButton").disabled = false;
+document.getElementById("Stop").addEventListener("click", function () {
+  document.getElementById("Start").disabled = false;
 
   clearInterval(intervalId);
 });
