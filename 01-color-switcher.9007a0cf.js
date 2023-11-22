@@ -1,0 +1,2 @@
+const t=document.getElementById("startButton"),e=document.getElementById("stopButton");t.addEventListener("click",(function(){this.disabled=!0,intervalId=setInterval((function(){document.body.style.backgroundColor=`#${Math.floor(16777215*Math.random()).toString(16).padStart(6,"0")}`}),1e3)})),e.addEventListener("click",(function(){t.disabled=!1,clearInterval(intervalId)}));
+//# sourceMappingURL=01-color-switcher.9007a0cf.js.map
