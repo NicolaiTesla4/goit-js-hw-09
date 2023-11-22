@@ -4,6 +4,8 @@ function getRandomHexColor() {
     .padStart(6, "0")}`;
 }
 
+let intervalId;
+
 const startButton = document.getElementById("startButton");
 const stopButton = document.getElementById("stopButton");
 
