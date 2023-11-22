@@ -519,7 +519,7 @@ stopButton.addEventListener("click", function() {
     startButton.disabled = false;
     clearInterval(intervalId);
 });
-console.log(getRandomHexColor);
+console.log(startButton);
 
 },{}]},["gzrwE","cYUEh"], "cYUEh", "parcelRequired7c6")
 
