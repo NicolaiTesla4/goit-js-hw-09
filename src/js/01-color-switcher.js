@@ -22,3 +22,5 @@ stopButton.addEventListener("click", function () {
 
   clearInterval(intervalId);
 });
+
+console.log(getRandomHexColor);
