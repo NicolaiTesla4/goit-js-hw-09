@@ -116,17 +116,6 @@ startButton.disabled = true;
 
 flatpickr(datetimePicker, options);
 
-function updateTimer(days, hours, minutes, seconds) {
-  daysElement.textContent = addLeadingZero(days);
-  hoursElement.textContent = addLeadingZero(hours);
-  minutesElement.textContent = addLeadingZero(minutes);
-  secondsElement.textContent = addLeadingZero(seconds);
-}
-
-function addLeadingZero(value) {
-  return value < 10 ? `0${value}` : value;
-}
-
 function startCountdown() {
   const endDate = new Date(datetimePicker.value).getTime();
 
@@ -142,6 +131,17 @@ function startCountdown() {
       updateTimer(days, hours, minutes, seconds);
     }
   }, 1000);
+}
+
+function updateTimer(days, hours, minutes, seconds) {
+  daysElement.textContent = addLeadingZero(days);
+  hoursElement.textContent = addLeadingZero(hours);
+  minutesElement.textContent = addLeadingZero(minutes);
+  secondsElement.textContent = addLeadingZero(seconds);
+}
+
+function addLeadingZero(value) {
+  return value < 10 ? `0${value}` : value;
 }
 
 startButton.addEventListener("click", startCountdown);
