@@ -22,29 +22,25 @@ function createPromise(position, delay) {
   });
 }
 
-document
-  .getElementById("createPromisesForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+document.querySelector(".form").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-    const firstDelay = parseInt(this.elements["delay"].value, 10);
-    const delayStep = parseInt(this.elements["step"].value, 10);
-    const amount = parseInt(this.elements["amount"].value, 10);
+  const delay = parseInt(this.elements.delay.value);
+  const step = parseInt(this.elements.step.value);
+  const amount = parseInt(this.elements.amount.value);
 
-    notiflix.Notify.Init({ position: "right-bottom" });
-
-    for (let i = 1; i <= amount; i++) {
-      const currentDelay = firstDelay + (i - 1) * delayStep;
-      createPromise(i, currentDelay)
-        .then(({ position, delay }) => {
-          notiflix.Notify.Success(
-            `✅ Fulfilled promise ${position} in ${delay}ms`
-          );
-        })
-        .catch(({ position, delay }) => {
-          notiflix.Notify.Failure(
-            `❌ Rejected promise ${position} in ${delay}ms`
-          );
-        });
-    }
-  });
+  for (let i = 0; i < amount; i++) {
+    const currentDelay = delay + step * i;
+    createPromise(i + 1, currentDelay)
+      .then(({ position, delay }) => {
+        Notiflix.Notify.success(
+          `✅ Fulfilled promise ${position} in ${delay}ms`
+        );
+      })
+      .catch(({ position, delay }) => {
+        Notiflix.Notify.failure(
+          `❌ Rejected promise ${position} in ${delay}ms`
+        );
+      });
+  }
+});
