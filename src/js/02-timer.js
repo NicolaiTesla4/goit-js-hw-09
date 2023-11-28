@@ -87,14 +87,6 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-const datetimePicker = document.getElementById("datetime-picker");
-const startButton = document.querySelector("[data-start]");
-const daysElement = document.querySelector("[data-days]");
-const hoursElement = document.querySelector("[data-hours]");
-const minutesElement = document.querySelector("[data-minutes]");
-const secondsElement = document.querySelector("[data-seconds]");
-startButton.disabled = true;
-
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -112,9 +104,17 @@ const options = {
   },
 };
 
-flatpickr(datetimePicker, options);
-
 let intervalId;
+
+const datetimePicker = document.getElementById("datetime-picker");
+const startButton = document.querySelector("[data-start]");
+const daysElement = document.querySelector("[data-days]");
+const hoursElement = document.querySelector("[data-hours]");
+const minutesElement = document.querySelector("[data-minutes]");
+const secondsElement = document.querySelector("[data-seconds]");
+startButton.disabled = true;
+
+flatpickr(datetimePicker, options);
 
 function startCountdown() {
   const endDate = new Date(datetimePicker.value).getTime();
