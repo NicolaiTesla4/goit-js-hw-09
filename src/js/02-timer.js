@@ -36,6 +36,7 @@ const options = {
 };
 
 let intervalId;
+let countdownActive = false;
 
 const datetimePicker = document.getElementById("datetime-picker");
 const startButton = document.querySelector("[data-start]");
@@ -75,4 +76,25 @@ function addLeadingZero(value) {
   return value < 10 ? `0${value}` : value;
 }
 
+startButton.disabled = true;
+countdownActive = true;
+
+intervalId = setInterval(() => {
+  const currentDate = new Date().getTime();
+  const timeDifference = endDate - currentDate;
+
+  if (timeDifference <= 0) {
+    clearInterval(intervalId);
+    updateTimer(0, 0, 0, 0);
+
+    startButton.disabled = false;
+    countdownActive = false;
+    Notiflix.Notify.success("Countdown completed!");
+  } else {
+    const { days, hours, minutes, seconds } = convertMs(timeDifference);
+    updateTimer(days, hours, minutes, seconds);
+  }
+}, 1000);
+
 startButton.addEventListener("click", startCountdown);
+
