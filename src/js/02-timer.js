@@ -101,4 +101,3 @@ intervalId = setInterval(() => {
 }, 1000);
 
 startButton.addEventListener("click", startCountdown);
-
